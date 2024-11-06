@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
-export const Slider1 = () => {
+export const Slider2 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = ["Slide 1", "Slide 2", "Slide 3"];
-  const maxSlide = slides.length - 1;
+  const names = ["Nash", "Wendy", "Edith"];
+  const maxSlide = names.length - 1;
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) =>
@@ -40,15 +40,26 @@ export const Slider1 = () => {
 
   return (
     <div className="rounded p-2 relative">
-      <div className="text-center text-xl mb-4">{slides[currentSlide]}</div>
-      <div className="flex justify-between items-center bottom-1">
-        <div className="p-2 cursor-pointer" onClick={prevSlide}>
-          <CgArrowLeft />
+      <div className="flex items-center gap-5 px-5 py-2">
+        <div className="mb-4 space-y-3">
+          <h1 className="text-xl font-semibold">{names[currentSlide]}</h1>
+          <div className="space-y-3 mt-1">
+            <p className="max-w-sm pb-2">Lorem ipsum dolor</p>
+            <p>
+              <Link
+                to=""
+                className="bg-primary py-2 px-4 rounded text-white text-sm"
+              >
+                Shop Now
+              </Link>
+            </p>
+          </div>
         </div>
-        <div className="flex gap-3">{dots()}</div>
-        <div className="p-2 cursor-pointer" onClick={nextSlide}>
-          <CgArrowRight />
-        </div>
+        <img
+          src="https://picsum.photos/200"
+          alt="slider"
+          className="w-1/3  object-cover rounded"
+        />
       </div>
     </div>
   );

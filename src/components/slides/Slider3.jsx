@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
-export const Slider2 = () => {
+export const Slider3 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const names = ["Nash", "Wendy", "Edith"];
   const maxSlide = names.length - 1;
@@ -40,7 +40,28 @@ export const Slider2 = () => {
 
   return (
     <div className="rounded p-2 relative">
-      <div className="text-center text-xl mb-4">{names[currentSlide]}</div>
+      <div className="flex items-center gap-5 px-5 py-2">
+        <img
+          src="https://picsum.photos/200"
+          alt="slider"
+          className="w-1/3 object-cover rounded"
+        />
+        <div className="mb-4">
+          <h1 className="text-xl font-semibold">{names[currentSlide]}</h1>
+          <div className="space-y-3 mt-1">
+            <p className="max-w-sm">Lorem ipsum dolor</p>
+            <p className="text-blue-800 font-semibold">2000</p>
+            <p>
+              <Link
+                to=""
+                className="bg-primary py-2 px-4 rounded text-white text-sm"
+              >
+                Shop Now
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
