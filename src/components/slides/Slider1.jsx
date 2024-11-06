@@ -29,38 +29,47 @@ export const Slider1 = () => {
       <div
         key={index}
         onClick={() => setCurrentSlide(index)}
-        className={`w-2 h-2 rounded-full cursor-pointer ${
-          index === currentSlide ? "bg-blue-500" : "bg-gray-500"
+        className={`w-3 h-3 rounded-full cursor-pointer transition ${
+          index === currentSlide ? "bg-blue-500" : "bg-gray-400"
         }`}
       ></div>
     ));
 
   return (
-    <div className="rounded p-5 relative h-full flex flex-col justify-between">
-      <div className="flex items-center flex-1">
-        <div className="mb-4 space-y-6 hidden md:block">
-          <h1 className="text-3xl font-bold">{slides[currentSlide]}</h1>
-          <p className="max-w-sm">
+    <div className="relative rounded-xl overflow-hidden shadow-sm bg-gray-50  flex flex-col items-center py-5 space-y-4">
+      <div className="relative flex items-center w-full">
+        <div className="absolute inset-0 flex flex-col justify-center items-start bg-black bg-opacity-40 text-white p-4 md:p-8 rounded-xl z-10">
+          <h1 className="text-3xl md:text-4xl font-bold">
+            {slides[currentSlide]}
+          </h1>
+          <p className="max-w-md mt-2 md:mt-4 text-sm md:text-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
-          <p>
-            <Link to="" className="bg-primary py-2 px-4 rounded text-white">
-              Shop Now
-            </Link>
-          </p>
+          <Link
+            to=""
+            className="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition"
+          >
+            Shop Now
+          </Link>
         </div>
         <img
-          src="https://picsum.photos/200"
+          src="https://picsum.photos/800/400"
           alt="slider"
-          className="w-full h-80 md:h-80 object-cover rounded"
+          className="w-full h-60 md:h-96 object-cover rounded-xl"
         />
       </div>
-      <div className="flex justify-between items-center absolute -bottom-2 md:bottom-0 left-0 right-0 px-4">
-        <div className="p-2 cursor-pointer" onClick={prevSlide}>
+      <div className="flex justify-between items-center w-full px-4">
+        <div
+          className="p-2 cursor-pointer text-xl text-gray-600 hover:text-gray-800"
+          onClick={prevSlide}
+        >
           <CgArrowLeft />
         </div>
         <div className="flex gap-3">{renderDots()}</div>
-        <div className="p-2 cursor-pointer" onClick={nextSlide}>
+        <div
+          className="p-2 cursor-pointer text-xl text-gray-600 hover:text-gray-800"
+          onClick={nextSlide}
+        >
           <CgArrowRight />
         </div>
       </div>
